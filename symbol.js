@@ -133,7 +133,7 @@ function template() {
 	HTML += 		'</div>';
 	HTML += 	'</div>';
 	HTML += 	'<div id="nextQuestion" class="btn btn-primary">Næste</div><b>spørgsmål:</b> <span id="questionCount"></span>';
-	HTML += 	'<div id="nextQuestion_cheat" class="btn btn-info">Næste</div>';
+	// HTML += 	'<div id="nextQuestion_cheat" class="btn btn-info">Næste</div>';
 	HTML += '</div>';
 	// HTML += '<div id="latex_prep_container_symbol" class="hidden"></div>';
 	// HTML += '<div id="latex_prep_container_unit" class="hidden"></div>';

@@ -6,7 +6,7 @@
     "genericQuestion" : "Vælg symbol og enhed for text{term}",
     "note" : "### VERY IMPORTANT ### : symbols in 'genericSymbol' and 'genericUnit' needs to be unique! So eg. the symbol 'c' used for 'speed og light' and 'specific heat capacity' cannot exist in the JSON data simultaneously! The reason for this is forward- and reverse-lookup in the 'eObj.symDb' object.",
     "genericSymbol" : [
-        {"no": 0, "sym": "c", "name": ["Specifik varmekapacitet", "Specifik varmefylde"], "unit": [{"nominator": "J", "denominator": "kg*K"}]}, 
+        {"no": 0, "sym": "c", "name": ["Varmefylde", "Specifikke varmekapacitet"], "unit": [{"nominator": "J", "denominator": "kg*K"}]}, 
         {"no": 1, "sym": "C", "name": ["Varmekapacitet", "Varmefylde"], "unit": [{"nominator": "J", "denominator": "K"}]}, 
         {"no": 2, "sym": "P", "name": ["Effekt"], "unit":  ["W",{"nominator": "J", "denominator": "s"}]},
         {"no": 3, "sym": "V", "name": ["Kubik meter", "Volume"], "unit": ["m^3"]},
