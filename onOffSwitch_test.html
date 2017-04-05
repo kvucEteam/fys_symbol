@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OnOffSwitch test</title>
+    <!-- http://www.robotstxt.org/meta.html -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../library/css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="ligning.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script type="text/javascript">
+
+        function onoffswitch(onText, offText, checked) {
+            var HTML = '';
+            HTML += '<div class="onoffswitch">';
+            HTML +=     '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" '+((checked)?'checked':'')+'>';
+            HTML +=     '<label class="onoffswitch-label" for="myonoffswitch">';
+            HTML +=         '<span class="onoffswitch-inner"></span>';
+            HTML +=         '<span class="onoffswitch-switch"></span>';
+            HTML +=     '</label>';
+            HTML += '</div>';
+            HTML += '<style type="text/css">.onoffswitch-inner:before{content:"'+onText+'";} .onoffswitch-inner:after{content:"'+offText+'";} </style>';  // This dirty markup inserts the onText and offText
+            return HTML;
+        }
+    </script>
+
+    <style type="text/css">
+
+        /****************************************************************
+        *  Styling stolen from; https://proto.io/freebies/onoff/
+        ****************************************************************/
+
+        .onoffswitch {
+            position: relative; width: 60px;
+            -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+            display: inline-block;    
+        }
+        .onoffswitch-checkbox {
+            display: none;
+        }
+        .onoffswitch-label {
+            display: block; overflow: hidden; cursor: pointer;
+            border: 1px solid #666; border-radius: 3px;
+        }
+        .onoffswitch-inner {
+            display: block; width: 200%; margin-left: -100%;
+            transition: margin 0.3s ease-in 0s;
+        }
+        .onoffswitch-inner:before, .onoffswitch-inner:after {
+            display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 19px;
+            /*font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;*/
+            font-size: 14px; color: white; font-weight: bold;
+            box-sizing: border-box;
+            padding-top: 1px;
+        }
+        .onoffswitch-inner:before {
+            /*content: "ON TEXT";*/
+            padding-left: 10px;
+            background-color: #56BFC5; color: #FFFFFF;
+            font-size: 13px;
+        }
+        .onoffswitch-inner:after {
+            /*content: "OFF TEXT";*/
+            padding-right: 6px;
+            background-color: #999999; color: #FFFFFF;
+            text-align: right;
+            font-size: 13px;
+        }
+        .onoffswitch-switch {
+            display: block; width: 22px; margin: 0px;
+            background: #FFFFFF;
+            position: absolute; top: 0; bottom: 0px;
+            right: 38px;
+            border: 1px solid #CDCDCB; border-radius: 4px;
+            box-shadow : 1px 1px 5px 0px;
+            transition: all 0.3s ease-in 0s; 
+        }
+        .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+            margin-left: 0;
+        }
+        .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+            right: 0px; 
+        }
+
+        .onoffswitch label {
+            margin: 0px;
+        }
+
+    </style>
+</head>
+
+    <body>
+        <div class="container-fluid">
+
+            <h1> OnOffSwitch </h1>
+
+            <div id="switch1"></div>
+            <div id="switch2"></div>
+
+        </div>
+        <script src="../library/vendor_scripts.js"></script>
+        <script src="../library/custom_scripts.js"></script>
+
+        <script type="text/javascript">
+
+            $('#switch1').html(onoffswitch('TIL', 'FRA', false));
+            $('#switch2').html(onoffswitch('TIL', 'FRA', false));
+
+        </script>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+            one_line_footer();
+        });
+        </script>
+    </body>
+
+</html>

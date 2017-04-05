@@ -1,0 +1,102 @@
+{
+    "easyQuestions" : true,
+	"header" : "Fysiske størrelser og enheder",
+	"instruction" : "Du skal trække et symbol for en fysisk størrelse og tilhørende enhed(er) op i kasserne",
+    "explanation" : "Ligninger i fysik rummer fysiske størrelser som alle har enheder. Det er vigtigt at kunne parrer størrelser med tilhørende enheder i en ligning således at et enhedstjek i en beregning kan foretages.",
+	"genericQuestion" : "Træk en fysisk størrelse og enheder op i kasserne for at vise hvordan man beskriver text{term}",
+    "note" : "### VERY IMPORTANT ### : symbols in 'genericSymbol' and 'genericUnit' needs to be unique! So eg. the symbol 'c' used for 'speed og light' and 'specific heat capacity' cannot exist in the JSON data simultaneously! The reason for this is forward- and reverse-lookup in the 'eObj.symDb' object.",
+    "genericSymbol" : [
+        {"no": 0, "sym": "c", "name": ["Specifik varmekapacitet", "Specifik varmefylde"], "unit": [{"nominator": "J", "denominator": "kg*K"}]}, 
+        {"no": 1, "sym": "C", "name": ["Varmekapacitet", "Varmefylde"], "unit": [{"nominator": "J", "denominator": "K"}]}, 
+        {"no": 2, "sym": "P", "name": ["Effekt"], "unit":  ["W",{"nominator": "J", "denominator": "s"}]},
+        {"no": 3, "sym": "V", "name": ["Kubik meter", "Volume"], "unit": ["m^3"]},
+        {"no": 4, "sym": "t", "name": ["tid"], "unit": ["s"]},
+        {"no": 5, "sym": "\\rho", "name": ["Massefylde", "Densitet"], "unit": [{"nominator": "kg", "denominator": "m^3"}]},
+        {"no": 6, "sym": "v", "name": ["Hastighed"], "unit": [{"nominator": "m", "denominator": "s"}]},
+        {"no": 7, "sym": "\\lambda", "name": ["Bølgelængde"], "unit": ["m"]},
+        {"no": 8, "sym": "f", "name": ["Frekvens"], "unit": ["Hz"]},
+        {"no": 9, "sym": "m", "name": ["Masse"], "unit": ["kg"]},
+        {"no": 10, "sym": "T", "name": ["Temperatur"], "unit": ["^{\\circ}C"]} 
+    ],
+    "genericUnit" : [
+        {"no": 0, "sym": "m", "name": ["Meter"]},
+        {"no": 1, "sym": "m^2", "name": ["Kvadrat meter", "Areal"]},
+        {"no": 2, "sym": "m^3", "name": ["Kubik meter", "Volume"]},
+        {"no": 3, "sym": "s", "name": ["Sekund"]},
+        {"no": 4, "sym": "s^2", "name": ["kvadrat sekund", "Sekund i anden"]},
+        {"no": 5, "sym": "K", "name": ["Kelvin"]},
+        {"no": 6, "sym": "^{\\circ}C", "name": ["Grader Celcius"]},
+        {"no": 8, "sym": "kg", "name": ["Kilogram", "Kilo"]},
+        {"no": 9, "sym": "J", "name": ["Joule"]},
+        {"no": 10, "sym": "Hz", "name": ["Hertz"]},
+        {"no": 11, "sym": "W", "name": ["Watt"]}
+    ],
+    "genericFeedback_negative" : [
+        {"no": 0, "msg": "Negativ feedback 1"},
+        {"no": 1, "msg": "Negativ feedback 2"},
+        {"no": 2, "msg": "Negativ feedback 3"},
+        {"no": 3, "msg": "Negativ feedback 4"},
+        {"no": 4, "msg": "Negativ feedback 5"}
+    ],
+    "qObj": [
+        {
+            "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
+            "term" : ["Temperatur"],
+            "quiz_genericSymbol": 10,
+            "exclude_genericUnit": [5],
+            "exclude_genericSymbol": [4]
+        },
+        {
+            "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
+            "term" : ["Effekt"],
+            "quiz_genericSymbol": 2
+        },
+        {
+            "XXX_question" : "Sæt symbol og enheder på massefylde/densitet",
+            "term" : ["Massefylde", "Densitet"],
+            "quiz_genericSymbol": 5
+        },
+        {
+            "XXX_question" : "Sæt symbol og enheder på den specifikke varmekapacitet",
+            "term" : ["Varmefylde", "den specifikke varmekapacitet"],
+            "quiz_genericSymbol": 0
+        },
+        {
+            "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
+            "term" : ["Hastighed"],
+            "quiz_genericSymbol": 6
+        },
+        {
+            "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
+            "term" : ["Frekvens"],
+            "quiz_genericSymbol": 8
+        },
+        {
+            "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
+            "term" : ["Bølgelængde"],
+            "quiz_genericSymbol": 7
+        }
+    ],
+    "lorem_ipsum" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultrices finibus felis, non porta eros semper eu. Morbi at tempus felis. Nullam at hendrerit dolor, nec dapibus dolor. Duis condimentum dui sit amet ex vehicula, in tempor quam venenatis. Integer molestie sit amet sem at faucibus. Donec accumsan purus et pellentesque dapibus. Integer sed arcu in nisi mattis cursus sed rutrum eros. Aliquam ut cursus felis, eget mattis dui.",
+    "qObj_BACKUP": [
+        {
+            "question" : "Sæt symbol og enheder på den specifikke varmekapacitet",
+            "term" : "den specifikke varmekapacitet",
+            "quiz_genericSymbol": 0,
+            "exclude_genericSymbol": [2],
+            "exclude_genericUnit": [9]
+        }
+    ],
+    "genericSymbol_BACKUP" : [
+        {"no": 0, "sym": "c", "name": ["Specifik varmekapacitet", "Specifik varmefylde"], "unit": ["J/(kg*K)"]}, 
+        {"no": 1, "sym": "C", "name": ["Varmekapacitet", "Varmefylde"], "unit": ["J/K"]}, 
+        {"no": 2, "sym": "c", "name": ["Lysets hastighed"], "unit": ["m/s"]},
+        {"no": 3, "sym": "s", "name": ["Meter"], "unit": ["m"]},
+        {"no": 4, "sym": "A", "name": ["Kvadrat meter", "Areal"], "unit": ["m^2"]},
+        {"no": 5, "sym": "V", "name": ["Kubik meter", "Volume"], "unit": ["m^3"]},
+        {"no": 6, "sym": "t", "name": ["Sekund"], "unit": ["s"]},
+        {"no": 7, "sym": "E_{kin}", "name": ["Kinetisk energi", "Energi"], "unit": ["kg*m^2/s^2"]},
+        {"no": 8, "sym": "E_{pot}", "name": ["Kinetisk energi", "Energi"], "unit": ["m/s^2*kg*m"]},
+        {"no": 9, "sym": "E_{mek}", "name": ["Kinetisk energi", "Energi"], "unit": ["m/s^2*kg*m"]}
+    ]
+}

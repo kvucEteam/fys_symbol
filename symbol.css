@@ -1,0 +1,230 @@
+
+/* MARK 23-03-2017*/
+
+.microhint{
+	/*display: none;*/
+}
+
+#headerContainer h4 {
+	display: inline-block;
+	margin-bottom: 0px;
+	font-weight: 600;   /* Same line-height as instruction */
+}
+
+#symbolHeader{
+	
+}
+
+#unitHeader{
+	margin-left: 150px;
+}
+
+
+#question{
+	display: inline-block;
+	max-width: 748px;  /* This aligns the max-width with of instruction and explanation */
+	line-height: 1.7;  /* Same line-height as instruction */
+}
+
+#question .label {
+	color: #000;
+}
+
+#interface{
+	width: 500px;
+}
+
+.symbol, .unit{
+	color: #000;
+	font-size: 225%;
+	display: inline-block;
+	/*vertical-align:top;*/ 
+	margin-right: 5px;
+	margin-bottom: 5px;
+	padding: 0px 10px 10px 10px;
+	height: 30px;
+	/*font-weight: 600;*/ /* <------ Virker ikke! */
+}
+
+.multiplication{
+	color: #333;
+	font-size: 100%;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	padding: 0px 0px 10px 0px;
+	height: 30px;
+	display: inline-block;
+	vertical-align:top;
+	position: relative;
+	top: 3px;
+}
+
+.symbol .MathJax_CHTML, .unit .MathJax_CHTML{
+	position: relative;
+	top: -7px;
+}
+
+
+
+.upperRow{
+	height: 100px;
+}
+
+.lowerRow{
+	/*margin-top: 15px;*/
+	margin-top: 65px;
+	/* position: relative; */
+}
+/*
+.leftColumn{
+	padding-top: 10%;
+}
+
+.rightColumn{
+	padding-top: 10%;
+}
+*/
+
+.column {
+	/*border: 1px solid #ccc;*/   /* 1px dashed #000; */
+	display: inline-block;
+	vertical-align:top;
+}
+
+.upperRow .leftColumn{
+	height: 100%;
+	width: 40%;
+}
+.upperRow .centerColumn{
+	height: 100%;
+	width: 20%;
+	text-align: center;
+	/*position: relative;
+	top: -75px;*/
+	/*border: 1px solid #F00;*/
+}
+.upperRow .rightColumn{
+	height: 100%;
+	width: 40%;
+}
+
+.lowerRow .leftColumn{
+	height: 100%;
+	width: 40%;
+}
+.lowerRow .centerColumn{
+	height: 50%;
+	width: 20%;
+	/*border: 1px solid #0F0;*/
+}
+.lowerRow .rightColumn{
+	height: 100%;
+	width: 40%;
+}
+
+#centerText{
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	padding: 10px;
+	position: relative;
+	top: 28%;
+	color: #FFF;
+	background-color: #333333;
+	border-radius: 6px;
+}
+
+.leftColumn .dropZone{
+	height: 40%
+}
+
+.rightColumn .dropZone{
+	height: 40%
+}
+
+.dropZone{
+	border: 1px dashed #666;   /* 1px dashed #000; */
+	padding-top: 4px;
+}
+
+#dropZone_symbol{
+	margin-top: 15%;
+}
+
+#fractionLine{
+	border: 1px solid #333;
+	margin-top: 6px;
+	margin-bottom: 3px;
+}
+
+#dropZone_nominator{
+	margin-top: 3%;
+	margin-bottom: 3px;
+}
+
+#unitContainer{
+	padding-top: 5px;
+}
+
+.hidden{
+	display: none;
+}
+
+.draggable_entity {
+	/*font-size: 225%;*/
+	cursor: pointer;
+	/*cursor: move;*/
+}
+
+#toggleFraction{
+	position: relative;
+	display: block;
+	padding-top: 10px;
+	cursor: pointer;
+}
+
+#toggleFraction_text{
+    position: relative;
+    top: -6px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #111;
+    font-weight: 400px;
+}
+
+#nextQuestion{
+	margin-right: 10px; 
+}
+
+#nextQuestion_cheat{
+	margin-left: 10px;
+}
+
+.nextQuestion_studentAnswer_unit{
+	font-size: 130%;
+}
+
+.label_wrong{
+	display: block;
+	padding: 10px;
+	background-color: #F00;
+	border-radius: 4px;
+}
+
+.label_correct{   /* Times New Roman? */ 
+	
+}
+
+.label_correct_nextQuestion {
+	display: block;
+	padding: 10px;
+	background-color: #2abb2a;
+	border-radius: 4px;
+}
+
+.sys_clone {
+	/*font-size: 100%;*/
+	/*position: relative;*/
+	/*padding-top: 15px;*/
+}

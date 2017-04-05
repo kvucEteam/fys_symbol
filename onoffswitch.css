@@ -1,0 +1,122 @@
+/***************************************************************************************
+ *
+ *  This code is from: https://proto.io/freebies/onoff/
+ *
+ ***************************************************************************************/
+
+/*
+    HTML that goes with the CSS below:
+    ----------------------------------
+    <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+        <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+        </label>
+    </div>
+*/
+
+/*
+.onoffswitch {
+    position: relative; width: 100px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    display: inline-block;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #666; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 16px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "TIL";
+    padding-left: 16px;
+    background-color: #2ABB2A; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "FRA";
+    padding-right: 16px;
+    background-color: #ED3E3A; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 39px; margin: -2.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0px; bottom: 5px;
+    right: 66px;
+    border: 2px solid #666; border-radius: 30px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+*/
+
+    .onoffswitch {
+        position: relative; width: 60px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+        display: inline-block;    
+    }
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        border-radius: 3px;
+    }
+    .onoffswitch-inner {
+        display: block; width: 200%; margin-left: -100%;
+        transition: margin 0.3s ease-in 0s;
+    }
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 19px;
+        /*font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;*/
+        font-size: 14px; color: white; font-weight: bold;
+        box-sizing: border-box;
+        padding-top: 1px;
+    }
+    .onoffswitch-inner:before {
+        content: "ON TEST";
+        padding-left: 11px;
+        background-color: #56BFC5; color: #FFFFFF;
+        font-size: 13px;
+    }
+    .onoffswitch-inner:after {
+        content: "OFF TEXT";
+        padding-right: 8px;
+        background-color: #999999; color: #FFFFFF;
+        text-align: right;
+        font-size: 13px;
+    }
+    .onoffswitch-switch {
+        display: block; width: 20px; margin: 0px;
+        background: #FFFFFF;
+        position: absolute; top: 0; bottom: 0px;
+        right: 40px;
+        border: 1px solid #CDCDCB; border-radius: 4px;
+        box-shadow : 1px 1px 5px 0px;
+        transition: all 0.3s ease-in 0s; 
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px; 
+    }
+
+    .onoffswitch label {
+        margin: 0px;
+    }
