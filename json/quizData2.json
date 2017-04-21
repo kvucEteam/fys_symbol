@@ -1,9 +1,9 @@
 {
     "easyQuestions" : true,
-	"header" : "Fysiske størrelser og enheder",
+	"header" : "Træk størrelse og enhed på plads (Let)",
 	"instruction" : "Træk symbolet og enheden for den fysiske størrelse op i kasserne.",
     "explanation" : "I fysik møder man ofte formler, som indeholder mange forskellige symboler. Symbolerne er typisk forkortelser for fysiske størrelser. For at kunne læse og anvende formlerne er det vigtigt at vide, hvilke symboler der hører til de forskellige størrelser. Når vi skal sætte tal på fysiske størrelser og regne med dem, følger der altid måleenheder med. Derfor har det også stor betydning, at man kender enhederne.",
-	"genericQuestion" : "Vælg symbol og enhed for text{term}",
+    "genericQuestion" : "Vælg symbol og enhed for text{term}",
     "note" : "### VERY IMPORTANT ### : symbols in 'genericSymbol' and 'genericUnit' needs to be unique! So eg. the symbol 'c' used for 'speed og light' and 'specific heat capacity' cannot exist in the JSON data simultaneously! The reason for this is forward- and reverse-lookup in the 'eObj.symDb' object.",
     "genericSymbol" : [
         {"no": 0, "sym": "c", "name": ["Varmefylde", "Specifikke varmekapacitet"], "unit": [{"nominator": "J", "denominator": "kg*K"}]}, 
@@ -16,7 +16,7 @@
         {"no": 7, "sym": "\\lambda", "name": ["Bølgelængde"], "unit": ["m"]},
         {"no": 8, "sym": "f", "name": ["Frekvens"], "unit": ["Hz"]},
         {"no": 9, "sym": "m", "name": ["Masse"], "unit": ["kg"]},
-        {"no": 10, "sym": "T", "name": ["Temperatur"], "unit": ["^{\\circ}C"]} 
+        {"no": 10, "sym": "T", "name": ["Temperatur"], "unit": ["K"]} 
     ],
     "genericUnit" : [
         {"no": 0, "sym": "m", "name": ["Meter"]},
@@ -43,38 +43,57 @@
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Temperatur"],
             "quiz_genericSymbol": 10,
-            "exclude_genericUnit": [5],
-            "exclude_genericSymbol": [4]
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Effekt"],
-            "quiz_genericSymbol": 2
+            "quiz_genericSymbol": 2,
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på massefylde/densitet",
             "term" : ["Massefylde", "Densitet"],
-            "quiz_genericSymbol": 5
+            "quiz_genericSymbol": 5,
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på den specifikke varmekapacitet",
             "term" : ["Varmefylde", "den specifikke varmekapacitet"],
-            "quiz_genericSymbol": 0
+            "quiz_genericSymbol": 0,
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Hastighed"],
-            "quiz_genericSymbol": 6
+            "quiz_genericSymbol": 6,
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Frekvens"],
-            "quiz_genericSymbol": 8
+            "quiz_genericSymbol": 8,
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Bølgelængde"],
-            "quiz_genericSymbol": 7
+            "quiz_genericSymbol": 7,
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
+        },
+        {
+            "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
+            "term" : ["Volumen"],
+            "quiz_genericSymbol": 3,
+            "exclude_genericUnit": [6],
+            "exclude_genericSymbol": [1]
         }
     ],
     "lorem_ipsum" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultrices finibus felis, non porta eros semper eu. Morbi at tempus felis. Nullam at hendrerit dolor, nec dapibus dolor. Duis condimentum dui sit amet ex vehicula, in tempor quam venenatis. Integer molestie sit amet sem at faucibus. Donec accumsan purus et pellentesque dapibus. Integer sed arcu in nisi mattis cursus sed rutrum eros. Aliquam ut cursus felis, eget mattis dui.",

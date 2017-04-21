@@ -463,12 +463,23 @@ function autoHideFractionAndDenominator(unit){
 		// $('#dropZone_nominator').css({'margin-top':'7%'});
 		$('#dropZone_nominator').css({'position':'relative', 'top': '25%'});
 		$('.upperRow .rightColumn').removeClass('fraction');  // ADDED 4/4-2017
+
+		// Bugfix, added 20-04-2017: this sets the on-off-switch in the correct position
+		$('.onoffswitch').next().remove();  // Remove styling on the onoffswitch
+		$('.onoffswitch').remove();  // Remove the onoffswitch
+		$('#toggleFraction').append(onoffswitch('TIL', 'FRA', false)); 
+
 	} else {
 		$('#fractionLine').show();
 		$('#dropZone_denominator').show();
 		// $('#dropZone_nominator').css({'margin-top':'1%'});
 		$('#dropZone_nominator').css({'position':'relative', 'top': '3%'});
 		$('.upperRow .rightColumn').addClass('fraction');   // ADDED 4/4-2017
+
+		// Bugfix, added 20-04-2017: this sets the on-off-switch in the correct position:
+		$('.onoffswitch').next().remove();  // Remove styling on the onoffswitch
+		$('.onoffswitch').remove();  // Remove the onoffswitch
+		$('#toggleFraction').append(onoffswitch('TIL', 'FRA', true)); 
 	}
 }
 
@@ -528,7 +539,15 @@ function toggleFractionAndDenominator(){
 		fractionAnimationComplete = false;
 		$('#toggleFraction').css({'pointer-events': 'none'}); // SEE: https://css-tricks.com/almanac/properties/p/pointer-events/
 
-	 	if ($('.upperRow .rightColumn').hasClass('fraction')) {
+
+		// if ($('#myonoffswitch').attr('checked')) {
+		// 	$('#myonoffswitch').removeAttr('checked');
+		// } else {
+		// 	$('#myonoffswitch').attr('checked', 'checked');
+		// }
+
+	 	// if ($('.upperRow .rightColumn').hasClass('fraction')) {
+	 	if ($('#myonoffswitch').attr('checked')) {
 	 		console.log('toggleFractionAndDenominator - TRANSITION 1');
 
 	 		// $('#toggleFraction').prepend('<div id="toggleFraction_overlay" style="height: 100%; width: 100%; position: absolute; background-color: #F00; z-index: 10;"></div>');
@@ -541,7 +560,8 @@ function toggleFractionAndDenominator(){
 					$('#toggleFraction').css({'pointer-events': 'auto'}); // SEE: https://css-tricks.com/almanac/properties/p/pointer-events/
 					console.log('toggleFractionAndDenominator - TIMEOUT');
 
-					$('.upperRow .rightColumn').toggleClass('fraction');
+					// $('.upperRow .rightColumn').toggleClass('fraction');
+					$('#myonoffswitch').removeAttr('checked');
 					
 					showFractionErrorMsg();
 
@@ -560,7 +580,8 @@ function toggleFractionAndDenominator(){
 					$('#toggleFraction').css({'pointer-events': 'auto'});  // SEE: https://css-tricks.com/almanac/properties/p/pointer-events/
 					console.log('toggleFractionAndDenominator - TIMEOUT');
 
-					$('.upperRow .rightColumn').toggleClass('fraction');
+					// $('.upperRow .rightColumn').toggleClass('fraction');
+					$('#myonoffswitch').attr('checked', 'checked');
 
 					showFractionErrorMsg();
 
@@ -570,6 +591,13 @@ function toggleFractionAndDenominator(){
 				// $('#myonoffswitch').attr('checked', 'checked');
 			});
 		}
+
+
+		// if ($('#myonoffswitch').attr('checked')) {
+		// 	$('#myonoffswitch').removeAttr('checked');
+		// } else {
+		// 	$('#myonoffswitch').attr('checked', 'checked');
+		// }
 	}
 	
 }
@@ -857,7 +885,8 @@ function showFractionErrorMsg() {
 	// Check if the fraction on/off is set correct according to the denominator
     if ( ([eObj.aObj.symbol].length == $('#dropZone_symbol .draggable_entity_clone').length) && 
         	 (eObj.aObj.unit.nominator.length == $('#dropZone_nominator .draggable_entity_clone').length) && 
-    		(( (eObj.aObj.unit.denominator.length == 0) && ($('.rightColumn').hasClass('fraction')) ) || ( (eObj.aObj.unit.denominator.length > 0) && (!$('.rightColumn').hasClass('fraction')) ) ) 
+    		// (( (eObj.aObj.unit.denominator.length == 0) && ($('.rightColumn').hasClass('fraction')) ) || ( (eObj.aObj.unit.denominator.length > 0) && (!$('.rightColumn').hasClass('fraction')) ) ) 
+    		(( (eObj.aObj.unit.denominator.length == 0) && ($('#myonoffswitch').attr('checked')) ) || ( (eObj.aObj.unit.denominator.length > 0) && (!$('#myonoffswitch').attr('checked')) ) ) 
     ){
     	console.log('entity - REVERT - B0');
     	eObj.questionAnswered = false;
@@ -958,7 +987,8 @@ function setEventHandlers(){
                 // Check if the fraction on/off is set correct according to the denominator
                 if ( ([eObj.aObj.symbol].length == $('#dropZone_symbol .draggable_entity_clone').length) && 
                 	 (eObj.aObj.unit.nominator.length == $('#dropZone_nominator .draggable_entity_clone').length) && 
-                	(( (eObj.aObj.unit.denominator.length == 0) && ($('.rightColumn').hasClass('fraction')) ) || ( (eObj.aObj.unit.denominator.length > 0) && (!$('.rightColumn').hasClass('fraction')) ) ) 
+                	// (( (eObj.aObj.unit.denominator.length == 0) && ($('.rightColumn').hasClass('fraction')) ) || ( (eObj.aObj.unit.denominator.length > 0) && (!$('.rightColumn').hasClass('fraction')) ) ) 
+                	(( (eObj.aObj.unit.denominator.length == 0) && ($('#myonoffswitch').attr('checked')) ) || ( (eObj.aObj.unit.denominator.length > 0) && (!$('#myonoffswitch').attr('checked')) ) ) 
                 ){
                 	console.log('entity - REVERT - B0');
                 	eObj.questionAnswered = false;
@@ -987,7 +1017,7 @@ function setEventHandlers(){
 
 							++eObj.showFractionErrorCount;
 
-						}, 20000);
+						}, 10000);   // Changed from 20000 to 10000  d. 18/4-2017
 
 						// ++eObj.showFractionErrorCount;
 					}
@@ -1021,7 +1051,8 @@ function setEventHandlers(){
 
                 	if (eObj.outsideDropzoneCount >= 2) {
                 		console.log('entity - REVERT - A4');
-                		microhint($('#'+id), wrongLabel() + "Dette er "+((dropObj.draggableCategory=='symbol')?'en fysisk størrelse':'en enhed')+". Fysisk størrelser skal i kassen til venstre og enheder skal i "+(($('.upperRow .rightColumn').hasClass('fraction'))?'en af kasserne':'kassen')+" til højre!", "#000");
+                		// microhint($('#'+id), wrongLabel() + "Dette er "+((dropObj.draggableCategory=='symbol')?'en fysisk størrelse':'en enhed')+". Fysisk størrelser skal i kassen til venstre og enheder skal i "+(($('.upperRow .rightColumn').hasClass('fraction'))?'en af kasserne':'kassen')+" til højre!", "#000");
+                		microhint($('#'+id), wrongLabel() + "Dette er "+((dropObj.draggableCategory=='symbol')?'en fysisk størrelse':'en enhed')+". Fysisk størrelser skal i kassen til venstre og enheder skal i "+(($('#myonoffswitch').attr('checked'))?'en af kasserne':'kassen')+" til højre!", "#000");
                 	}
                 	addIdToMicrohint();
 
@@ -1054,7 +1085,8 @@ function setEventHandlers(){
 
 		                	if (eObj.negativeFeedbackCount_symbol >= 0) {
 		                		console.log('entity - REVERT - A5');
-		                		microhint($('#'+id), wrongLabel() + "Den fysiske størrelse er ikke korrekt - prøv igen!", "#000");
+		                		// microhint($('#'+id), wrongLabel() + "Den fysiske størrelse er ikke korrekt - prøv igen!", "#000");
+		                		microhint($('#'+id), wrongLabel() + "Ikke korrekt - prøv igen!", "#000");
 		                	}
 
 		                	addIdToMicrohint();
@@ -1082,7 +1114,8 @@ function setEventHandlers(){
 
 		                	if (eObj.negativeFeedbackCount_unit == 0) {
 		                		console.log('entity - REVERT - A8');
-		                		microhint($('#'+id), wrongLabel() + "Enheden er ikke korrekt - prøv igen!", "#000");
+		                		// microhint($('#'+id), wrongLabel() + "Enheden er ikke korrekt - prøv igen!", "#000");
+		                		microhint($('#'+id), wrongLabel() + "Ikke korrekt - prøv igen!", "#000");
 		                	}
 
 		                	if (eObj.negativeFeedbackCount_unit >= 1) {
@@ -1140,7 +1173,8 @@ function setEventHandlers(){
 
 	                	if (eObj.negativeFeedbackCorrectUnitWrongZoneCount == 0) {
 	                		console.log('entity - REVERT - A2');
-	                		microhint($('#'+id), wrongLabel() + "Enheden er ikke korrekt - prøv igen!", "#000");
+	                		// microhint($('#'+id), wrongLabel() + "Enheden er ikke korrekt - prøv igen!", "#000");
+	                		microhint($('#'+id), wrongLabel() + "Ikke korrekt - prøv igen!", "#000");
 	                	}
 
 	                	if (eObj.negativeFeedbackCorrectUnitWrongZoneCount >= 1) {
@@ -1196,6 +1230,11 @@ function setEventHandlers(){
             eObj.posMem.top = offset.top;
 
             eObj.draggablePos_begin = $(this).offset();
+
+            // Solution from translation.js where the same problem occured:
+            // ============================================================
+            $(this).width(eObj.entityDimensions[eObj.idOfCurrentDraggable].width);    // Re-ajust the width, since JQuery wants to set a new width
+            $(this).height(eObj.entityDimensions[eObj.idOfCurrentDraggable].height);  // Re-ajust the height, since JQuery wants to set a new height
 
             console.log('entity - START - idOfCurrentDraggable: ' + eObj.idOfCurrentDraggable + ', isCurrentDraggableCorrect: ' + eObj.isCurrentDraggableCorrect + ', left: ' + eObj.posMem.left + ', top: ' + eObj.posMem.top);
 
@@ -1642,6 +1681,9 @@ function unitsInWords(){
 }
 
 
+// PART 1:
+// =======
+// NOTE: This function alters the interface and makes the "easy" version if jsonData.easyQuestions = true
 function answerSymbolOrUnits(quizNo) {
 
 	var id, answerSymbolOrUnit = [], count = 0;
@@ -1721,6 +1763,9 @@ function answerSymbolOrUnits(quizNo) {
 }
 
 
+// PART 2:
+// =======
+// NOTE: This function alters the interface and makes the "easy" version if jsonData.easyQuestions = true
 function answerSymbolOrUnits_insert(answerSymbolOrUnit) {
 
 	if (jsonData.easyQuestions) {  // If easyQuestions = true, the student is presented with easy questions - eg. either the symbol is pre-placed or all units are pre-placed.
@@ -1803,6 +1848,16 @@ function makeSymDb() {
 }
 
 
+function getEntityDimensions(){
+	$(".draggable_entity" ).each(function( index, element ){
+		// eObj.entityDimensions.push({id: $(element).prop('id'), width: $(element).width(), height: $(element).height()});
+		eObj.entityDimensions[$(element).prop('id')] = {width: $(element).width(), height: $(element).height()};
+	});
+
+	console.log('getEntityDimensions - eObj: ' + JSON.stringify(eObj));
+}
+
+
 function main(quizNo){
 
 	console.log('main - CALLED');
@@ -1828,6 +1883,8 @@ function main(quizNo){
 	// eObj.negativeFeedbackNextBtnCount_cliked = 0;
 	eObj.microhintRemoveCount = 0;
 	eObj.microhintIdMem = [];
+	// eObj.entityDimensions = [];   // Internet Explorer enlarges the entity when dragged. This memory ensures that width and height of each entity is enforced to be the same as when created.
+	eObj.entityDimensions = {};
 
 	// eObj.aObj = getAnswerSymbolAndUnits(eObj.quizNo);  // COMMENTED OUT 23-03-2017
 	eObj.aObj = getAnswerSymbolAndUnits_2(eObj.quizNo);   // ADDED 23-03-2017
@@ -1847,6 +1904,7 @@ var TanswerSymbolOrUnit = answerSymbolOrUnits(eObj.quizNo);   // VIRKER PT IKKE 
 	$('.lowerRow').height($('.lowerRow').height());  // <----- IMPORTANT: The height on the .lowerRow container "jumps" up and down as the new .draggable_entity's are created. By locking the height, the jump is prevented
 	makeDraggable_symbols(eObj.quizNo, eObj.aObj.symbol, TanswerSymbolOrUnit);
 	makeDraggable_units(eObj.quizNo, eObj.aObj.unit, TanswerSymbolOrUnit);
+	
 	$('.draggable_entity').hide();
 
 	setEventHandlers();   // COMMENTED OUT 22-03-2017
@@ -1872,7 +1930,11 @@ var TanswerSymbolOrUnit = answerSymbolOrUnits(eObj.quizNo);   // VIRKER PT IKKE 
 
 		answerSymbolOrUnits_insert(TanswerSymbolOrUnit);
 
+		getEntityDimensions();
+
 	});
+
+
 
 	
 
@@ -2060,7 +2122,8 @@ $(document).on('click', "#nextQuestion", function(event) {
 				}
 
 				$('body').append('<div class="latexPrepContainer_unit hidden"></div>');
-	    		$('.latexPrepContainer_unit:last').html('\\('+latex+'\\)');
+	    		// $('.latexPrepContainer_unit:last').html('\\('+latex+'\\)');  		// Commented out 18-04-2017
+	    		$('.latexPrepContainer_unit:last').html('\\(\\mathrm{'+latex+'}\\)');  	// Added 18-04-2017	 -  This removes the italic font
 	    		MathJax.Hub.Queue(["Typeset",MathJax.Hub,$('.latexPrepContainer_unit:last')[0]]);
 			}
 			
@@ -2127,16 +2190,34 @@ $(document).on('click', "#nextQuestion", function(event) {
 });
 
 
-$( document ).on('click', "#toggleFraction", function(event){
+// $( document ).on('click', "#toggleFraction_text", function(event){   // <----- UDKOMMENTERET d. 21-04-2017 PGA TIDSFORBRUG - HUSK AT INFORMERE TLY!
+
+// 	// console.log('toggleFraction_text - : ' + HTML);
+	
+// 	// if ($('.upperRow .rightColumn').hasClass('fraction')) {
+// 	// if ($('#myonoffswitch').attr('checked')) {
+// 	// 	$('#myonoffswitch').removeAttr('checked');
+// 	// } else {
+// 	// 	$('#myonoffswitch').attr('checked', 'checked');
+// 	// }
+
+
+// 	$('.onoffswitch').trigger('click');
+		
+// });
+
+
+// $( document ).on('click', "#toggleFraction", function(event){
+$( document ).on('click', ".onoffswitch", function(event){         // <----- TILFØJET 20-04-2017
 	toggleFractionAndDenominator();
+
+	// $('.onoffswitch').trigger('click');
 
 	if (eObj.showFractionError) {
 		eObj.showFractionError = false;
 		clearTimeout(eObj.showFractionError_timer);  // Clear the timer
 
-
 		// ###################################
-
 	}
 
 });

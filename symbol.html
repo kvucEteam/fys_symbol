@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Fysik C symboler og enheder</title>
+    <title>Træk størrelse og enhed på plads (Svær)</title>
     <!-- http://www.robotstxt.org/meta.html -->
     <meta name="robots" content="noindex, nofollow" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -30,8 +30,21 @@
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>  <!-- bootstrap toggle/bootstrap switch -->
 
         <!--  The perferred location is in the head-tag, and not the body-tag:  --> 
-        
-        <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>  
+<!--         
+        <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
+-->
+
+<!--  
+    IMPROTANT NOTE: 
+    The "async" HTML-tag property is sometimes making the symbol.js script fail because the MathJax.js from the CDN is loading slower than symbol.js - the MathJax.js 
+    file is therefore (sometimes) not loaded when the function main() is running the command:
+
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,$('#interfaceContainer')[0]]);
+
+    SEE:
+        http://stackoverflow.com/questions/37910124/mathjax-is-not-defined
+-->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>  
 
 <!-- 
         <script type="text/javascript" async src="MathJax-2.7.0/MathJax.js"></script> 
