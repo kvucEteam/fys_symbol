@@ -189,6 +189,7 @@ function makeDraggable_units(quizNo, unit, answerSymbolOrUnit){
 	console.log('makeDraggable_units - jdgu: ' + JSON.stringify(jdgu));
 	var jdq = jsonData.qObj[quizNo];
 	console.log('makeDraggable_units - jdq: ' + JSON.stringify(jdq));
+	console.log('makeDraggable_units - unit: ' + JSON.stringify(unit));
 	var HTML = '';
 	var nomAndDenom = unit.nominator.concat(unit.denominator);
 	console.log('makeDraggable_units - nomAndDenom: ' + JSON.stringify(nomAndDenom));
@@ -226,6 +227,7 @@ function resetAcceptedDraggable_units(quizNo, unit){
     console.log('resetAcceptedDraggable_units - jdgu: ' + JSON.stringify(jdgu));
     var jdq = jsonData.qObj[quizNo];
     console.log('resetAcceptedDraggable_units - jdq: ' + JSON.stringify(jdq));
+    console.log('makeDraggable_units - unit: ' + JSON.stringify(unit));
     var HTML = '';
     var nomAndDenom = unit.nominator.concat(unit.denominator);
     console.log('resetAcceptedDraggable_units - nomAndDenom: ' + JSON.stringify(nomAndDenom));
@@ -2267,7 +2269,7 @@ $(window).resize(function() {
 
 $(document).ready(function() {
 
-	jsonData.qObj = shuffelArray(jsonData.qObj);  // <--- Randomize the quiz questions. Udkommenteret d. 27/4-2017 ---> MIP skal bruge det i en præsentation d. 28/4-2017 kl 11
+	// jsonData.qObj = shuffelArray(jsonData.qObj);  // <--- Randomize the quiz questions. Udkommenteret d. 27/4-2017 ---> MIP skal bruge det i en præsentation d. 28/4-2017 kl 11
 
 	basicPosCalc();
 	window.eObj = {
