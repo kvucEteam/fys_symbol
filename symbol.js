@@ -1005,7 +1005,7 @@ function setEventHandlers(){
                 		$( ".container-fluid" ).trigger( "click" );
                 	}
                 } else {
-                	microhint($('#dropped_'+eObj.droppedEntityId), "<b class='label_correct'>Korrekt</b> placeret!", "#2ABB2A"); // This works!!!
+                	microhint($('#dropped_'+eObj.droppedEntityId), "<div class='microhint_label_success'>Korrekt!</div>" + ((dropObj.draggableCategory=='symbol')?'Den fysiske størrelse':'Enheden') + ' er rigtigt placeret!', "#2ABB2A"); // This works!!!    // ((dropObj.draggableCategory=='symbol')?'denne fysiske størrelse':'denne enhed')
                 	addIdToMicrohint();
 
                 	if (eObj.showFractionError) {
@@ -1052,7 +1052,7 @@ function setEventHandlers(){
                 	if (eObj.outsideDropzoneCount >= 2) {
                 		console.log('entity - REVERT - A4');
                 		// microhint($('#'+id), wrongLabel() + "Dette er "+((dropObj.draggableCategory=='symbol')?'en fysisk størrelse':'en enhed')+". Fysisk størrelser skal i kassen til venstre og enheder skal i "+(($('.upperRow .rightColumn').hasClass('fraction'))?'en af kasserne':'kassen')+" til højre!", "#000");
-                		microhint($('#'+id), wrongLabel() + "Dette er "+((dropObj.draggableCategory=='symbol')?'en fysisk størrelse':'en enhed')+". Fysisk størrelser skal i kassen til venstre og enheder skal i "+(($('#myonoffswitch').attr('checked'))?'en af kasserne':'kassen')+" til højre!", "#000");
+                		microhint($('#'+id), wrongLabel() + "Dette er "+((dropObj.draggableCategory=='symbol')?'en fysisk størrelse':'en enhed')+". Fysiske størrelser skal i kassen til venstre, og enheder skal i "+(($('#myonoffswitch').attr('checked'))?'en af kasserne':'kassen')+" til højre!", "#000");
                 	}
                 	addIdToMicrohint();
 
@@ -1231,10 +1231,10 @@ function setEventHandlers(){
 
             eObj.draggablePos_begin = $(this).offset();
 
-            // Solution from translation.js where the same problem occured:
-            // ============================================================
-            $(this).width(eObj.entityDimensions[eObj.idOfCurrentDraggable].width);    // Re-ajust the width, since JQuery wants to set a new width
-            $(this).height(eObj.entityDimensions[eObj.idOfCurrentDraggable].height);  // Re-ajust the height, since JQuery wants to set a new height
+            // // Solution from translation.js where the same problem occured:  // <------  26/4-2017 AFHJÆLPER IKKE SLK's PROBLEM - derfor er koden udkommenteret!
+            // // ============================================================
+            // $(this).width(eObj.entityDimensions[eObj.idOfCurrentDraggable].width);    // Re-ajust the width, since JQuery wants to set a new width
+            // $(this).height(eObj.entityDimensions[eObj.idOfCurrentDraggable].height);  // Re-ajust the height, since JQuery wants to set a new height
 
             console.log('entity - START - idOfCurrentDraggable: ' + eObj.idOfCurrentDraggable + ', isCurrentDraggableCorrect: ' + eObj.isCurrentDraggableCorrect + ', left: ' + eObj.posMem.left + ', top: ' + eObj.posMem.top);
 
@@ -1851,7 +1851,12 @@ function makeSymDb() {
 function getEntityDimensions(){
 	$(".draggable_entity" ).each(function( index, element ){
 		// eObj.entityDimensions.push({id: $(element).prop('id'), width: $(element).width(), height: $(element).height()});
+		console.log('getEntityDimensions - id: ' + $(element).prop('id') + ', width: ' + $(element).width() + ', height: ' + $(element).height() + ', padding: ' + $(element).css('padding'))
 		eObj.entityDimensions[$(element).prop('id')] = {width: $(element).width(), height: $(element).height()};
+
+
+		// Added 26/4-2017:
+		// $(element).css(eObj.entityDimensions[$(element).prop('id')]); //  <---- VIRKER IKKE!
 	});
 
 	console.log('getEntityDimensions - eObj: ' + JSON.stringify(eObj));
@@ -1898,8 +1903,8 @@ function main(quizNo){
 
 	makeSymDb();
 
-var TanswerSymbolOrUnit = answerSymbolOrUnits(eObj.quizNo);   // VIRKER PT IKKE ORDENTLIGT
-// var TanswerSymbolOrUnit = [];   // VIRKER PT IKKE ORDENTLIGT
+	var TanswerSymbolOrUnit = answerSymbolOrUnits(eObj.quizNo);   
+	
 
 	$('.lowerRow').height($('.lowerRow').height());  // <----- IMPORTANT: The height on the .lowerRow container "jumps" up and down as the new .draggable_entity's are created. By locking the height, the jump is prevented
 	makeDraggable_symbols(eObj.quizNo, eObj.aObj.symbol, TanswerSymbolOrUnit);
@@ -1930,11 +1935,10 @@ var TanswerSymbolOrUnit = answerSymbolOrUnits(eObj.quizNo);   // VIRKER PT IKKE 
 
 		answerSymbolOrUnits_insert(TanswerSymbolOrUnit);
 
-		getEntityDimensions();
+		
+		// getEntityDimensions();   // <------  26/4-2017 AFHJÆLPER IKKE SLK's PROBLEM - derfor er koden udkommenteret!
 
 	});
-
-
 
 	
 
@@ -2263,7 +2267,7 @@ $(window).resize(function() {
 
 $(document).ready(function() {
 
-	jsonData.qObj = shuffelArray(jsonData.qObj);  // <--- Randomize the quiz questions.
+	jsonData.qObj = shuffelArray(jsonData.qObj);  // <--- Randomize the quiz questions. Udkommenteret d. 27/4-2017 ---> MIP skal bruge det i en præsentation d. 28/4-2017 kl 11
 
 	basicPosCalc();
 	window.eObj = {

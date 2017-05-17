@@ -48,7 +48,7 @@
 
 .multiplication{
 	color: #333;
-	font-size: 100%;
+	font-size: 80%;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	padding: 0px 0px 10px 0px;
@@ -126,10 +126,10 @@
 	margin: 0px;
 	padding: 0px;
 	display: inline-block;
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 	padding: 10px;
 	position: relative;
-	top: 28%;
+	top: 29%;
 	color: #FFF;
 	background-color: #333333;
 	border-radius: 6px;
@@ -216,7 +216,7 @@
 	
 }
 
-.label_correct_nextQuestion {
+.label_correct_nextQuestion, .label_correct {
 	display: block;
 	padding: 10px;
 	background-color: #2abb2a;
