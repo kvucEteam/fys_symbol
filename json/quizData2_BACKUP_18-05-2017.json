@@ -6,7 +6,7 @@
     "genericQuestion" : "Vælg symbol og enhed for text{term}",
     "note" : "### VERY IMPORTANT ### : symbols in 'genericSymbol' and 'genericUnit' needs to be unique! So eg. the symbol 'c' used for 'speed og light' and 'specific heat capacity' cannot exist in the JSON data simultaneously! The reason for this is forward- and reverse-lookup in the 'eObj.symDb' object.",
     "genericSymbol" : [
-        {"no": 0, "sym": "c", "name": ["Varmefylde", "Specifikke varmekapacitet"], "unit": [{"nominator": "J", "denominator": "kg*K"}, {"nominator": "J", "denominator": "kg*^{\\circ}C"}]}, 
+        {"no": 0, "sym": "c", "name": ["Varmefylde", "Specifikke varmekapacitet"], "unit": [{"nominator": "J", "denominator": "kg*K"}]}, 
         {"no": 1, "sym": "C", "name": ["Varmekapacitet", "Varmefylde"], "unit": [{"nominator": "J", "denominator": "K"}]}, 
         {"no": 2, "sym": "P", "name": ["Effekt"], "unit":  ["W",{"nominator": "J", "denominator": "s"}]},
         {"no": 3, "sym": "V", "name": ["Kubik meter", "Volume"], "unit": ["m^3"]},
@@ -16,7 +16,7 @@
         {"no": 7, "sym": "\\lambda", "name": ["Bølgelængde"], "unit": ["m"]},
         {"no": 8, "sym": "f", "name": ["Frekvens"], "unit": ["Hz"]},
         {"no": 9, "sym": "m", "name": ["Masse"], "unit": ["kg"]},
-        {"no": 10, "sym": "T", "name": ["Temperatur"], "unit": [{"nominator":["K"],"denominator":[]},{"nominator":["^{\\circ}C"],"denominator":[]}]} 
+        {"no": 10, "sym": "T", "name": ["Temperatur"], "unit": ["K"]} 
     ],
     "genericUnit" : [
         {"no": 0, "sym": "m", "name": ["Meter"]},
@@ -43,48 +43,56 @@
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Temperatur"],
             "quiz_genericSymbol": 10,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Effekt"],
             "quiz_genericSymbol": 2,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på massefylde/densitet",
             "term" : ["Massefylde", "Densitet"],
             "quiz_genericSymbol": 5,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på den specifikke varmekapacitet",
             "term" : ["Varmefylde", "den specifikke varmekapacitet"],
             "quiz_genericSymbol": 0,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Hastighed"],
             "quiz_genericSymbol": 6,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Frekvens"],
             "quiz_genericSymbol": 8,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Bølgelængde"],
             "quiz_genericSymbol": 7,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         },
         {
             "XXX_question" : "Sæt symbol og enheder på varmekapacitet",
             "term" : ["Volumen"],
             "quiz_genericSymbol": 3,
+            "exclude_genericUnit": [6],
             "exclude_genericSymbol": [1]
         }
     ],
