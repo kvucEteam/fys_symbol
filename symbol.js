@@ -2270,6 +2270,7 @@ $(window).resize(function() {
 $(document).ready(function() {
 
 	rotateCheck();
+	$('#UserMsgBox h3').html('Roter din skærm og udgå zoom'); // Man skal undgå zoom pga placeringen af microhints! d. 19/5-2017.
 
 	jsonData.qObj = shuffelArray(jsonData.qObj);  // <--- Randomize the quiz questions. Udkommenteret d. 27/4-2017 ---> MIP skal bruge det i en præsentation d. 28/4-2017 kl 11
 
