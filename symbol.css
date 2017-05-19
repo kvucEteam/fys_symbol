@@ -228,3 +228,48 @@
 	/*position: relative;*/
 	/*padding-top: 15px;*/
 }
+
+
+
+/********************************************
+	Style added dyring bugfix 18-05-2017
+********************************************/
+
+
+h1,
+.instructionText,
+.explanationText,
+#question, 
+#symbolHeader, 
+#unitHeader, 
+.draggable_entity,
+.draggable_entity_clone, 
+#centerText,
+#nextQuestion,
+#questionCount,
+#interface,
+#interface b,
+#toggleFraction_text {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+
+
+/*
+	.microhint {
+		max-width: none;
+	}
+*/
+
