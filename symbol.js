@@ -1956,12 +1956,18 @@ function main(quizNo){
 // $(document).on('touchmove', "body", function(event) {   // <------- FEJL: "touchmove", "touchstart"  virker ikke med mus - man skal have mousedown!
 // $(document).on('mousedown', "body", function(event) { 									// <----- FEJL ift hurtigt træk i .draggable_entity   
 $(document).on('click', "body", function(event) {											// <----- OK ift hurtigt træk i .draggable_entity
+	console.log('body - CLICKED' );
+
+	var microhint_present;
+
 // $(document).on('mousedown', ".microhint", function(event) {    // , .draggable_entity
 // $(document).on('mousedown', ".draggable_entity", function(event) {						// <----- FEJL ift hurtigt træk i .draggable_entity
 	
 	// console.log('body - CLICKED - negativeFeedbackNextBtnCount_cliked: ' + eObj.negativeFeedbackNextBtnCount_cliked);
 
 	if ((typeof(nextQuestion_clicked)==='undefined') || (!nextQuestion_clicked)){   // This prevents the microhint msg from closing if #nextQuestion is pressed. 
+
+
 		eObj.wrongFeedbackTriggered = false;
         moveDraggableBackToTheOriginalPosition();
 
@@ -2000,11 +2006,21 @@ $(document).on('click', "body", function(event) {											// <----- OK ift hur
             	eObj.questionAnswered = false;
             }
         }
+        
 	}
 
 	nextQuestion_clicked = false; 
 
 	// ++eObj.negativeFeedbackNextBtnCount_cliked;
+});
+
+
+// ADDED 22/6-2017
+// Dette er quick bug-fix for den problematik der gør at android mobil telefoner (faktisk også firefox på desktop) skal bruge to klik, hvis man har dragget 
+// en draggable et forkert sted hen og et microhint fremkommer: eet klik på microhintet (microhintet forsvinder) og eet klik på body (draggable glider på plads).
+// Hvis man blot klikker på body, så forsvinder microhintet og draggable glider på plads - hvilket er helt OK
+$(document).on('click', ".microhint", function(event) {
+	$('body').trigger( 'click' ); 
 });
 
 
@@ -2227,6 +2243,12 @@ $( document ).on('click', ".onoffswitch", function(event){         // <----- TIL
 	}
 
 });
+
+
+// $(document).on('click', ".microhint", function(event) { // ADDED 22/6-2016
+// 	moveDraggableBackToTheOriginalPosition();
+// 	// $(this).remove();
+// });
 
 
 $(document).on('click', "#nextQuestion_cheat", function(event) {
